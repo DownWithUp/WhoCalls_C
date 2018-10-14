@@ -146,6 +146,10 @@ int main(unsigned int argc, char* argv[]) {
             SRC: https://docs.microsoft.com/en-us/windows/desktop/api/winnt/ns-winnt-_image_data_directory
             */
             IDDImports = pINH->OptionalHeader.DataDirectory[IMPORT_TABLE_INDEX]; // File has Import table
+	          if (IDDImports.VirtualAddress == 0x0) {
+		          printf("[!] File has invalid import table address");
+              goto skipFile;
+	          }
             PIMAGE_SECTION_HEADER pISHImports = myImageRvaToVa(pINH, lpMemory, IDDImports.VirtualAddress);
             PIMAGE_SECTION_HEADER pISHImportsForName = myImageRvaToSection(pINH, lpMemory, IDDImports.VirtualAddress);
             if (pISHImportsForName->Name == 0x00) {
@@ -215,6 +219,10 @@ int main(unsigned int argc, char* argv[]) {
             SRC: https://docs.microsoft.com/en-us/windows/desktop/api/winnt/ns-winnt-_image_data_directory
             */
             IDDImports = pINH64->OptionalHeader.DataDirectory[IMPORT_TABLE_INDEX]; //File has Import table
+            if (IDDImports.VirtualAddress == 0x0) {
+              printf("[!] File has invalid import table address");
+              goto skipFile;
+            }
             PIMAGE_SECTION_HEADER pISHImports = myImageRvaToVa(pINH64, lpMemory, IDDImports.VirtualAddress);
             PIMAGE_SECTION_HEADER pISHImportsForName = myImageRvaToSection(pINH64, lpMemory, IDDImports.VirtualAddress);
             if (pISHImportsForName->Name == 0x00) {
