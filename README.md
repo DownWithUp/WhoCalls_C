@@ -4,4 +4,4 @@ WhoCalls can query a directory of files, find the binaries, and search for a use
 WhoCalls.exe [API Name] [Path To Query] 
 
 API Name: A valid Windows API function. eg: ExitProcess<br/>
-Path To Query: A valid path without the ending backslash . eg: C:\Users\Admin\Desktop
+Path To Query: A valid path without the ending backslash. eg: C:\Users\Admin\Desktop
