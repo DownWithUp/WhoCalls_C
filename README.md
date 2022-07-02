@@ -1,3 +1,7 @@
+# Archive Notice: 
+### This tool has been replaced by https://github.com/DownWithUp/WhoCalls
+<hr>
+
 # WhoCalls
 WhoCalls can query a directory of files, find the binaries, and search for a user specified Win API import. It works with both 32-bit (PE) and 64-bit (PE32+) file formats (.exe, .dll, .sys)
 # Example Use
